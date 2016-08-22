@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>nodejs网页截图</title>
+    <meta name="description" content="screenshot tool">
+    <meta name="keywords" content="screenshot,nodejs">
+    <meta name="author" content="beisenUED">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .button{
+            margin-top: 25px;
+        }
+        .bg{
+            border:1px dashed #333;
+        }
+        .preview{
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" ">
+                <div class="form-group">
+                    <label for="urladdress"> url 地址</label>
+                    <input type="text"  id="url" class="url form-control" placeholder="请输入网址">
+                </div>
+            </div>
+
+            <div class="col-md-3" ">
+                <label for="urladdress">选择图片大小</label>
+
+                <select class="form-control">
+                    <option>1026x768</option>
+                </select>
+            </div>
+
+
+            <div class="col-md-3" ">
+                <button type="button" class="button btn btn-primary">点击获取截图</button>
+            </div>
+
+        </div>
+
+            <div class="row">
+                <div class="preview ">
+                <img class="bg" src="http://pic2.52pk.com/files/150424/5329500_1A40aQ.jpg" width="890" height="525">
+                </div>
+            </div>
+    </div>
+    <script type="text/javascript ">
+    $(document).ready(function() {
+        $(".button ").click(function() {
+            var query = {"url":$(".url").val(),
+                "height":1024|| $(".height").val(),
+                "width": 768 || $(".width").val()
+            };
+            $.get("/query?"+$.param(query), function(datauri) {
+                $('.preview').html('<img class="bg" src=" ' + datauri + ' " />');
+            });
+
+        });
+
+    });
+    </script>
+    </script>
+</body>
+
+</html>
