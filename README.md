@@ -1,13 +1,13 @@
-#web远程截图 
+#get web screenshot in web 
 
->依赖 
+>depend on 
 
 ```
-依赖  phantomjs
+depend on  phantomjs
 mac : brew install  phantomjs
 ```
 
->使用 
+>usage
 
 ```
 npm i
